@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+/* Grid layout styling */
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Responsive adjustments */
+@media (min-width: 640px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 3D Element Styling */
+.card3d {
+  transform: translateZ(20px);
+  transition: transform 0.3s ease;
+}
+
+.card3d:hover {
+  transform: translateZ(40px);
+}
+
+@layer base {
+  :root {
+    --background: 220 30% 10%;
+    --foreground: 220 10% 90%;
+    --card: 220 25% 8%;
+    --card-foreground: 220 10% 90%;
+    --popover: 220 25% 8%;
+    --popover-foreground: 220 10% 90%;
+    --primary: 150 80% 40%;
+    --primary-foreground: 220 10% 10%;
+    --secondary: 100 50% 30%;
+    --secondary-foreground: 220 10% 90%;
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 10% 70%;
+    --accent: 50 60% 40%;
+    --accent-foreground: 220 10% 90%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 220 10% 90%;
+    --border: 220 20% 25%;
+    --input: 220 20% 25%;
+    --ring: 150 80% 50%;
+    --radius: 0.75rem;
+    --chart-1: 50 70% 50%;
+    --chart-2: 150 60% 45%;
+    --chart-3: 250 80% 55%;
+    --chart-4: 310 65% 60%;
+    --chart-5: 10 75% 55%;
+    --sidebar-background: 220 25% 8%;
+    --sidebar-foreground: 220 10% 90%;
+    --sidebar-primary: 150 80% 40%;
+    --sidebar-primary-foreground: 220 10% 10%;
+    --sidebar-accent: 220 20% 20%;
+    --sidebar-accent-foreground: 220 10% 90%;
+    --sidebar-border: 220 20% 25%;
+    --sidebar-ring: 150 80% 50%;
+  }
+
+  .dark {
+    --background: 220 30% 10%;
+    --foreground: 220 10% 90%;
+    --card: 220 25% 8%;
+    --card-foreground: 220 10% 90%;
+    --popover: 220 25% 8%;
+    --popover-foreground: 220 10% 90%;
+    --primary: 150 80% 40%;
+    --primary-foreground: 220 10% 10%;
+    --secondary: 100 50% 30%;
+    --secondary-foreground: 220 10% 90%;
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 10% 70%;
+    --accent: 50 60% 40%;
+    --accent-foreground: 220 10% 90%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 220 10% 90%;
+    --border: 220 20% 25%;
+    --input: 220 20% 25%;
+    --ring: 150 80% 50%;
+    --radius: 0.75rem;
+    --chart-1: 50 70% 50%;
+    --chart-2: 150 60% 45%;
+    --chart-3: 250 80% 55%;
+    --chart-4: 310 65% 60%;
+    --chart-5: 10 75% 55%;
+    --sidebar-background: 220 25% 8%;
+    --sidebar-foreground: 220 10% 90%;
+    --sidebar-primary: 150 80% 40%;
+    --sidebar-primary-foreground: 220 10% 10%;
+    --sidebar-accent: 220 20% 20%;
+    --sidebar-accent-foreground: 220 10% 90%;
+    --sidebar-border: 220 20% 25%;
+    --sidebar-ring: 150 80% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Soft light theme (lighter gray instead of pure white) */
+.soft-light {
+  --background: 210 20% 98%;
+  --foreground: 224 71.4% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 224 71.4% 4.1%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 224 71.4% 4.1%;
+  --primary: 262.1 83.3% 57.8%;
+  --primary-foreground: 210 20% 98%;
+  --secondary: 220 14.3% 95.9%;
+  --secondary-foreground: 220.9 39.3% 11%;
+  --muted: 220 14.3% 95.9%;
+  --muted-foreground: 220 8.9% 46.1%;
+  --accent: 220 14.3% 95.9%;
+  --accent-foreground: 220.9 39.3% 11%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 20% 98%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 262.1 83.3% 57.8%;
+}
+
+/* Reader mode styles */
+.reader-mode {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  color: #333;
+  font-family: Georgia, serif;
+  padding: 2rem;
+}
+
+.reader-mode h1,
+.reader-mode h2,
+.reader-mode h3 {
+  font-family: system-ui, -apple-system, sans-serif;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.reader-mode p {
+  margin-bottom: 1em;
+}
+
+/* Enhanced card styles */
+.card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark .card {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.dark .card:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
