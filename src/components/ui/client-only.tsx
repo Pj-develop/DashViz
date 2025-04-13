@@ -1,52 +1,54 @@
-"use client"
+'use client';
+import { useState, useEffect, ReactNode } from 'react';
 
-import { useEffect, useState } from "react"
+interface ClientOnlyProps {
+  children: ReactNode;
+  requiresWebGL?: boolean;
+  fallback?: ReactNode;
+}
 
-export default function ClientOnly({ 
+const ClientOnly: React.FC<ClientOnlyProps> = ({
   children,
-  fallback = null,
-  requiresWebGL = false
-}: { 
-  children: React.ReactNode,
-  fallback?: React.ReactNode,
-  requiresWebGL?: boolean
-}) {
+  requiresWebGL = false,
+  fallback = null
+}) => {
   const [hasMounted, setHasMounted] = useState(false);
-  const [hasWebGL, setHasWebGL] = useState(false);
-  
+  const [hasWebGL, setHasWebGL] = useState(true);
+
   useEffect(() => {
     setHasMounted(true);
     
+    // Check WebGL support if required
     if (requiresWebGL) {
-      // Check for WebGL support
       try {
         const canvas = document.createElement('canvas');
-        const gl = canvas.getContext('webgl') || 
-                  canvas.getContext('experimental-webgl');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
         setHasWebGL(!!gl);
       } catch (e) {
         setHasWebGL(false);
+        console.error('WebGL not supported:', e);
       }
     }
   }, [requiresWebGL]);
 
-  if (!hasMounted) {
-    return <>{fallback}</>;
-  }
-  
-  if (requiresWebGL && !hasWebGL) {
-    return (
-      <div className="w-full h-[400px] flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-lg p-4">
-        <span role="img" aria-label="Warning" className="text-5xl mb-4">⚠️</span>
-        <h3 className="text-lg font-medium mb-2">WebGL Not Available</h3>
-        <p className="text-center text-gray-600 dark:text-gray-400">
-          Your browser doesn't support WebGL, which is required for 3D visualizations.
-          <br />
-          Please try using a modern browser like Chrome, Firefox, or Edge.
-        </p>
+  if (!hasMounted || (requiresWebGL && !hasWebGL)) {
+    return fallback || (
+      <div className="min-h-[400px] flex items-center justify-center">
+        <div className="text-center">
+          {requiresWebGL && !hasWebGL ? (
+            <div>
+              <p className="text-red-500">WebGL is not supported in your browser</p>
+              <p className="text-sm text-gray-500">Required for 3D visualizations</p>
+            </div>
+          ) : (
+            <div className="animate-spin rounded-full h-12 w-12 border-4 border-indigo-500 border-t-transparent"></div>
+          )}
+        </div>
       </div>
     );
   }
 
   return <>{children}</>;
-}
+};
+
+export default ClientOnly;

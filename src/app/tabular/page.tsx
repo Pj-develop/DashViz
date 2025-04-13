@@ -36,6 +36,7 @@ export default function Dashboard() {
   const [tableDataACV, setTableDataACV] = useState<TableData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [data, setData] = useState([]);
   
   // Helper function to find the correct win rate from data
   const getCorrectWinRate = (data: ChartData[]): number => {

@@ -72,7 +72,7 @@ const Line = ({ points, color }: { points: [number, number, number][]; color: st
       <bufferGeometry attach="geometry">
         <bufferAttribute
           attach="attributes-position"
-          array={new Float32Array(points.flat())}
+          args={[new Float32Array(points.flat()), 3]}
           count={points.length}
           itemSize={3}
         />

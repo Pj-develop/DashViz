@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from './button';
-import { ThemeToggle } from '../theme-toggle';
 import { motion } from "framer-motion";
 import Link from 'next/link';
 import { Home, Info, Mail, Menu, X } from 'lucide-react';
@@ -124,7 +123,7 @@ export const Navbar = () => {
                 transition={{ duration: 0.3 }}
               />
             </Link>
-            <ThemeToggle />
+           
           </div>
 
           {/* Mobile menu button */}
@@ -160,7 +159,7 @@ export const Navbar = () => {
             <span>Contact</span>
           </Link>
           <div className="pt-4">
-            <ThemeToggle />
+            
           </div>
         </div>
       </motion.div>

@@ -4,7 +4,8 @@ import * as React from "react"
 import { useRef, useEffect, useState } from "react"
 import * as RechartsPrimitive from "recharts"
 import { useTheme } from 'next-themes';
-import { BarChart3D } from './bar-chart-3d';
+import { motion } from "framer-motion-3d";
+import { BarChart3D } from "@/components/ui/bar-chart-3d";
 
 import { cn } from "@/lib/utils"
 
@@ -452,7 +453,7 @@ const PieChart = ({ data }: { data: DataItem[] }) => {
 // 3D Bar for Three.js rendering
 const Bar3D = ({ position, height, color }: { position: [number, number, number]; height: number; color: string }) => {
   return (
-    <motion.mesh 
+    <motion.group
       position={position} 
       initial={{ scale: [1, 0, 1] }}
       animate={{ scale: [1, height, 1] }}
@@ -460,27 +461,7 @@ const Bar3D = ({ position, height, color }: { position: [number, number, number]
     >
       <boxGeometry args={[0.8, 1, 0.8]} />
       <meshStandardMaterial color={color} metalness={0.1} roughness={0.1} />
-    </motion.mesh>
-  );
-};
-
-// Text label for 3D chart
-const Label3D = ({ position, text, color }: { position: [number, number, number]; text: string; color: string }) => {
-  return (
-    <Text
-      position={position}
-      color={color}
-      fontSize={0.5}
-      maxWidth={2}
-      lineHeight={1}
-      letterSpacing={0.02}
-      textAlign="center"
-      font="https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwK4vaqI.woff"
-      anchorX="center"
-      anchorY="middle"
-    >
-      {text}
-    </Text>
+    </motion.group>
   );
 };
 
