@@ -21,15 +21,18 @@
 - CSV export  
 - Responsive layout
 
-📸 *Screenshot (Desktop)*  
-![Tabular View - Desktop](![DesktopView](image-1.png))  
-![Tabular View - Desktop2](image-2.png)
+📸 *Screenshot (Desktop)*
+
+![Tabular View with Black Theme - Desktop](image-1.png)  
+![Tabular View with White Theme - Desktop](image-2.png)
 ![white-theme](image-6.png)
 
+
 📸 *Screenshot (Mobile)*  
-![Tabular View - Mobile](![Tabular View - Mobile](image-3.png))
-![mobile 2](image-4.png)
-![mobile-view2](image-5.png)
+
+![Tabular View Funnel- Mobile](image-3.png)
+![Tabular View Funnel - Mobile](image-4.png)
+![Tabular View Excel - Mobile](image-5.png)
 
 ---
 
