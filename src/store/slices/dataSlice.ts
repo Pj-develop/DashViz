@@ -106,8 +106,8 @@ export const dataSlice = createSlice({
             const aValue = a[field as keyof TerritoryItem];
             const bValue = b[field as keyof TerritoryItem]; 
             
-            if (aValue < bValue) return direction === 'asc' ? -1 : 1;
-            if (aValue > bValue) return direction === 'asc' ? 1 : -1;
+            if ((aValue ?? 0) < (bValue ?? 0)) return direction === 'asc' ? -1 : 1;
+            if ((aValue ?? 0) > (bValue ?? 0)) return direction === 'asc' ? 1 : -1;
             return 0;
           });
         }
